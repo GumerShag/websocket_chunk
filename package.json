@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "codestyle": "prettier --write ./app/script.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,5 +15,8 @@
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3",
     "ws": "^7.2.5"
+  },
+  "devDependencies": {
+    "prettier": "1.18.1"
   }
 }

@@ -2,7 +2,7 @@ const WebSocket = require('ws');
 const fs = require('fs');
 
 const wss = new WebSocket.Server({port: 8080});
-const FileStreamPath = "./media/View_From_A_Blue_Moon_Trailer-576p.mp4";
+const FileStreamPath = "./media/test.webm";
 const LENGTH_SIZE = 256 * 1024;
 
 function reverseString(str) {
@@ -42,6 +42,7 @@ wss.on('connection', function connection(ws, req) {
 
                     readStream.on("data", function (chunk) {
                         chunks.push(chunk);
+                        //TODO: Hot fix as on chunk is cutted to TWO
                         if (chunks.length === 2) {
                             ws.send(JSON.stringify({'method': 'reserve', 'pack': start, 'data': chunks.join('')}));
                             chunks = [];
